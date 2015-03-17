@@ -44,10 +44,7 @@ module Janky
         build.run
         [201, "Going ham on #{build.repo_name}/#{build.branch_name}"]
       else
-        Exception.report('404 Unknown Branch', {repo: repo, branch: branch, room_id: room_id,
-                                                user: user, build: build, repo_name: repo_name,
-                                                branch_name: branch_name})
-        [404, "Unknown branch #{branch_name.inspect}. Push again"]
+        [404, "Unknown branch #{branch_name.inspect}. Push again - INFO: repo: #{repo}, branch: #{branch}, room_id: #{room_id}, user: #{user}, build: #{build}, branch_name: #{branch_name}, repo_name: #{repo_name}"]
       end
     end
 
