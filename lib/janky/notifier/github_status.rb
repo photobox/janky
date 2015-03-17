@@ -57,6 +57,7 @@ module Janky
         post = Net::HTTP::Post.new("#{@api_url.path}#{path}")
 
         http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
         post["Content-Type"] = "application/json"
         post["Authorization"] = "token #{@token}"

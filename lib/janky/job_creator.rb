@@ -75,6 +75,7 @@ module Janky
         http = Net::HTTP.new(uri.host, uri.port)
         if uri.scheme == "https"
           http.use_ssl = true
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
 
         get = Net::HTTP::Get.new("#{path}/job/#{name}/")
@@ -100,6 +101,7 @@ module Janky
         http = Net::HTTP.new(uri.host, uri.port)
         if uri.scheme == "https"
           http.use_ssl = true
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
 
         post = Net::HTTP::Post.new("#{path}/createItem?name=#{name}")

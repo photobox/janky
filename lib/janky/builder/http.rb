@@ -10,6 +10,7 @@ module Janky
         http     = Net::HTTP.new(create_url.host, create_url.port)
         if create_url.scheme == "https"
           http.use_ssl = true
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
 
         request  = Net::HTTP::Post.new(create_url.path)
@@ -30,6 +31,7 @@ module Janky
         http     = Net::HTTP.new(url.host, url.port)
         if url.scheme == "https"
           http.use_ssl = true
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
 
         request  = Net::HTTP::Get.new(url.path)
