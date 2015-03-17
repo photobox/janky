@@ -1,10 +1,10 @@
 module Janky
   module GitHub
     class API
-      def initialize(url, user, password)
+      def initialize(url, user, password, two_factor_auth, secret)
         @url = url
-        @user = user
-        @password = password
+        @user = two_factor_auth ? secret : user
+        @password = two_factor_auth ? '' : password
       end
 
       def create(nwo, secret, url)
@@ -52,7 +52,6 @@ module Janky
         path    = build_path("repos/#{nwo}/commits/#{branch}")
         request = Net::HTTP::Get.new(path)
         request.basic_auth(@user, @password)
-
         http.request(request)
       end
 
