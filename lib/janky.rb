@@ -147,6 +147,7 @@ module Janky
       settings["JANKY_GITHUB_USER"],
       settings["JANKY_GITHUB_PASSWORD"],
       settings["JANKY_GITHUB_HOOK_SECRET"],
+      settings["JANKY_GITHUB_USER_2FA_ENABLED"],
       hook_url,
       api_url,
       git_host
